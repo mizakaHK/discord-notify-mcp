@@ -1,5 +1,10 @@
 # Discord Notify MCP Server
 
+[![Go Version](https://img.shields.io/badge/go-v1.23-blue.svg
+)](https://golang.org/)
+[![MCP](https://img.shields.io/badge/MCP-Server-6236FF?style=flat&logo=claude&logoColor=white)](https://github.com/modelcontextprotocol/mcp)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Discord通知を送信するためのMCP (Model Context Protocol) サーバーです。
 
 ## 機能
@@ -25,7 +30,7 @@ go mod download
 
 2. `.env`ファイルを作成し、Discord Webhook URLを設定:
 ```
-DISCORD_WEBHOOK_URL=your_webhook_url_here
+DISCORD_WEBHOOK_URL=<your_webhook_url>
 ```
 
 3. ビルド:
@@ -39,11 +44,12 @@ go build -o bin/discord-notify-mcp ./cmd/mcp-server
 
 1. MCPサーバーをClaude Codeに登録:
 ```bash
-claude mcp add discord-notify -e DISCORD_WEBHOOK_URL="your_webhook_url_here" -- /path/to/bin/discord-notify-mcp
+claude mcp add discord-notify -e DISCORD_WEBHOOK_URL="your_webhook_url" -- /path/to/bin/discord-notify-mcp
 ```
 
 または、`.env`ファイルがある場合:
 ```bash
+# discord-notify-mcp ディレクトリで実行
 claude mcp add discord-notify -e DISCORD_WEBHOOK_URL="$(cat .env | grep DISCORD_WEBHOOK_URL | cut -d= -f2-)" -- $(pwd)/bin/discord-notify-mcp
 ```
 
