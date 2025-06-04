@@ -44,13 +44,13 @@ go build -o bin/discord-notify-mcp ./cmd/mcp-server
 
 1. MCPサーバーをClaude Codeに登録:
 ```bash
-claude mcp add discord-notify -e DISCORD_WEBHOOK_URL="your_webhook_url" -- /path/to/bin/discord-notify-mcp
+claude mcp add discord-notify -s user -e DISCORD_WEBHOOK_URL="your_webhook_url" -- /path/to/bin/discord-notify-mcp
 ```
 
 または、`.env`ファイルがある場合:
 ```bash
 # discord-notify-mcp ディレクトリで実行
-claude mcp add discord-notify -e DISCORD_WEBHOOK_URL="$(cat .env | grep DISCORD_WEBHOOK_URL | cut -d= -f2-)" -- $(pwd)/bin/discord-notify-mcp
+claude mcp add discord-notify -s user -e DISCORD_WEBHOOK_URL="$(cat .env | grep DISCORD_WEBHOOK_URL | cut -d= -f2-)" -- $(pwd)/bin/discord-notify-mcp
 ```
 
 2. 登録を確認:
